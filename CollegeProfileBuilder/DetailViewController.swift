@@ -9,19 +9,18 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-
-
-    func configureView() {
-        // Update the user interface for the detail item.
-        if let detail = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.description
-            }
+    @IBOutlet weak var collegeField: UITextField!
+    @IBOutlet weak var locationField: UITextField!
+    @IBOutlet weak var populationField: UITextField!
+    @IBOutlet weak var image: UIImageView!
+    
+    var detailItem: College? {
+        didSet {
+            // Update the view.
+            self.configureView()
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -32,13 +31,26 @@ class DetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    var detailItem: NSDate? {
-        didSet {
-            // Update the view.
-            self.configureView()
+    func configureView() {
+        // Update the user interface for the detail item
+        if let college = self.detailItem {
+            if collegeField != nil {
+                collegeField.text = college.name
+                locationField.text = college.location
+                populationField.text = String(college.numberOfStudents)
+                image.image = UIImage(data: college.image)
+            }
         }
     }
+    @IBAction func savePressed(_ sender: UIButton) {
+        if let college = self.detailItem {
+            college.name = collegeField.text!
+            college.location = locationField.text!
+            college.numberOfStudents = Int(populationField.text!)!
+            college.image = UIImagePNGRepresentation(image.image!)!
+        }
+    }
+    
 
 
 }
