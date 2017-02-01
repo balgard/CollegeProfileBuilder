@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-38" y="-630"/>
         </scene>
-        <!--Detail-->
+        <!--College Description-->
         <scene sceneID="yUG-lL-AsK">
             <objects>
-                <viewController title="Detail" id="JEX-9P-axG" customClass="DetailViewController" customModule="CollegeProfileBuilder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="College Description" id="JEX-9P-axG" customClass="DetailViewController" customModule="CollegeProfileBuilder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SYR-Wa-9uf"/>
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
@@ -37,26 +38,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
-                                <rect key="frame" x="20" y="325" width="335" height="17"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="College" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e2K-00-1SA">
+                                <rect key="frame" x="112" y="92" width="150" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Number of Students" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f7L-oL-8n6">
+                                <rect key="frame" x="112" y="168" width="150" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Location" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m7Q-jb-5Vc">
+                                <rect key="frame" x="112" y="130" width="150" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eYn-gF-yCb">
+                                <rect key="frame" x="67" y="206" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="I68-An-XsX"/>
+                                    <constraint firstAttribute="height" constant="150" id="xJO-Hw-cI1"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Cw-Ud-Hx6">
+                                <rect key="frame" x="170" y="342" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="0XM-y9-sOw" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" constant="20" symbolic="YES" id="Tsc-yG-G1q"/>
-                            <constraint firstItem="0XM-y9-sOw" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="jWN-iV-94e"/>
-                            <constraint firstAttribute="trailing" secondItem="0XM-y9-sOw" secondAttribute="trailing" constant="20" symbolic="YES" id="tHV-ZD-HQj"/>
+                            <constraint firstItem="e2K-00-1SA" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="0j3-r5-2ge"/>
+                            <constraint firstItem="eYn-gF-yCb" firstAttribute="top" secondItem="f7L-oL-8n6" secondAttribute="bottom" constant="8" symbolic="YES" id="Dc3-vf-84H"/>
+                            <constraint firstItem="m7Q-jb-5Vc" firstAttribute="leading" secondItem="f7L-oL-8n6" secondAttribute="leading" id="Njb-HG-O1r"/>
+                            <constraint firstItem="e2K-00-1SA" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="96" id="PBz-N8-Y6e"/>
+                            <constraint firstItem="eYn-gF-yCb" firstAttribute="centerX" secondItem="5Cw-Ud-Hx6" secondAttribute="centerX" id="QqT-sF-coj"/>
+                            <constraint firstItem="e2K-00-1SA" firstAttribute="leading" secondItem="m7Q-jb-5Vc" secondAttribute="leading" id="S4p-G1-khI"/>
+                            <constraint firstItem="e2K-00-1SA" firstAttribute="trailing" secondItem="m7Q-jb-5Vc" secondAttribute="trailing" id="UJm-QY-LoW"/>
+                            <constraint firstItem="m7Q-jb-5Vc" firstAttribute="trailing" secondItem="f7L-oL-8n6" secondAttribute="trailing" id="bIo-jr-VyY"/>
+                            <constraint firstItem="e2K-00-1SA" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="28" id="cpW-R0-JI0"/>
+                            <constraint firstItem="5Cw-Ud-Hx6" firstAttribute="top" secondItem="eYn-gF-yCb" secondAttribute="bottom" constant="8" symbolic="YES" id="e9B-Uc-pHk"/>
+                            <constraint firstItem="m7Q-jb-5Vc" firstAttribute="top" secondItem="e2K-00-1SA" secondAttribute="bottom" constant="8" symbolic="YES" id="gFf-IX-iDV"/>
+                            <constraint firstItem="f7L-oL-8n6" firstAttribute="centerX" secondItem="eYn-gF-yCb" secondAttribute="centerX" id="jhG-2Z-xfE"/>
+                            <constraint firstItem="f7L-oL-8n6" firstAttribute="top" secondItem="m7Q-jb-5Vc" secondAttribute="bottom" constant="8" symbolic="YES" id="yRW-DI-5lf"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
-                    <connections>
-                        <outlet property="detailDescriptionLabel" destination="0XM-y9-sOw" id="deQ-Na-JPF"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
@@ -76,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="-856" y="-330"/>
         </scene>
-        <!--Master-->
+        <!--Colleges-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
-                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="CollegeProfileBuilder" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Colleges" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="CollegeProfileBuilder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
