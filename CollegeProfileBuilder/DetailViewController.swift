@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DetailViewController: UIViewController {
     @IBOutlet weak var collegeField: UITextField!
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var populationField: UITextField!
     @IBOutlet weak var image: UIImageView!
+    let realm = try! Realm()
     
     var detailItem: College? {
         didSet {
@@ -44,11 +46,14 @@ class DetailViewController: UIViewController {
     }
     @IBAction func savePressed(_ sender: UIButton) {
         if let college = self.detailItem {
-            college.name = collegeField.text!
-            college.location = locationField.text!
-            college.numberOfStudents = Int(populationField.text!)!
-            college.image = UIImagePNGRepresentation(image.image!)!
+            try! realm.write({
+                college.name = collegeField.text!
+                college.location = locationField.text!
+                college.numberOfStudents = Int(populationField.text!)!
+                college.image = UIImagePNGRepresentation(image.image!)!
+            })
         }
+        
     }
     
 

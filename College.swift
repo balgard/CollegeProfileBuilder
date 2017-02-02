@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
-class College: NSObject {
-    var name = String()
-    var location = String()
-    var numberOfStudents = Int()
-    var image = Data()
+class College: Object {
+    dynamic var name = String()
+    dynamic var location = String()
+    dynamic var numberOfStudents = Int()
+    dynamic var image = Data()
     
     convenience init(name: String, location: String, numberOfStudents: Int, image: Data) {
         self.init()
