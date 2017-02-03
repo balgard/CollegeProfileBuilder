@@ -27,8 +27,6 @@ class MasterViewController: UITableViewController {
             objects.append(college)
         }
         
-
-
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
@@ -48,7 +46,8 @@ class MasterViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
     func insertNewObject(_ sender: Any) {
         let alert = UIAlertController(title: "Add College", message: nil, preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -112,12 +111,13 @@ class MasterViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return objects.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
+        
         let object = objects[indexPath.row] as! College
         cell.textLabel!.text = object.name
+        cell.detailTextLabel!.text = object.location
         return cell
     }
 
@@ -125,7 +125,12 @@ class MasterViewController: UITableViewController {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-
+    
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let college = objects.remove(at: indexPath.row) as! College
@@ -136,6 +141,7 @@ class MasterViewController: UITableViewController {
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
+        
     }
 
 
