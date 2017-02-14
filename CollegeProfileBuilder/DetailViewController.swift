@@ -8,8 +8,10 @@
 
 import UIKit
 import RealmSwift
+import SafariServices
 
 class DetailViewController: UIViewController {
+    @IBOutlet weak var website: UITextField!
     @IBOutlet weak var collegeField: UITextField!
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var populationField: UITextField!
@@ -54,6 +56,8 @@ class DetailViewController: UIViewController {
             })
         }
         
+    }
+    @IBAction func linkButton(_ sender: UIButton) {
     }
     
 
